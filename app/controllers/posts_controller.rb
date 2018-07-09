@@ -11,7 +11,11 @@ class PostsController < ApplicationController
   end
 
   def create
+    @brewery = Brewery.find_or_create_by(post_params(:brewery[:name], :brewery[:city], :brewery[:state]))
+    @beer = Beer.find_or_create_by(post_params(:beer[:name], :beer[:style]))
+    @brewery.beers << @beer
     @post = Post.new(post_params(:description, :situation))
+    @beer.posts << @post
   end
 
   def show

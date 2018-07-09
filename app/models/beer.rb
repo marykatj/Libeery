@@ -5,4 +5,11 @@ class Beer < ApplicationRecord
 
   validates :name, { presence: true, uniqueness: true }
   validates :style, presence: true
+
+  @@styles = []
+
+  def self.styles
+    @@styles
+  end
+
 end
