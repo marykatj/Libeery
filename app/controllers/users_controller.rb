@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :fetch_user, only: [:show, :edit, :destroy]
+  before_action :fetch_user, only: [:show, :edit, :update, :destroy]
 
   def new
     @user = User.new

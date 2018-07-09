@@ -1,0 +1,16 @@
+<%= form_for @post do |f| %>
+  <%= f.label :beer[:name] %>
+  <%= f.text_field :beer[:name] %><br>
+  <%= f.label :brewery[:name] %>
+  <%= f.text_field :brewery[:name] %><br>
+  <%= f.label :brewery[:city] %>
+  <%= f.text_field :brewery[:city] %>
+  <%= f.label :brewery[:state] %>
+  <%= f.text_field :brewery[:state] %><br>
+  <%= f.label :beer[:style] %>
+  <%= f.collection_select(:beer[:style], Beer.styles, :self, :self) %><br>
+  <%= f.label :beer[:abv] %>
+  <%= f.text_area :beer[:abv] %><br>
+  <%= f.label :description %>
+  <%= f.text_area :description %><br>
+<% f.submit %>
