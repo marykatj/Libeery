@@ -1,0 +1,7 @@
+<h1> Cheers <%= @user.name %>! </h1>
+
+<h3> From <%=@user.location %> <h3>
+
+<% @user.posts.each do |post| %>
+  <%= post %>
+<% end %>
