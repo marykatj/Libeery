@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'application#home'
   resources :posts
   resources :breweries
   resources :beers
