@@ -8,14 +8,17 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @beer = Beer.new
+    @brewery = Brewery.new
   end
 
   def create
-    @brewery = Brewery.find_or_create_by(post_params(:brewery[:name], :brewery[:city], :brewery[:state]))
-    @beer = Beer.find_or_create_by(post_params(:beer[:name], :beer[:style]))
+    @brewery = Brewery.find_or_create_by(post_params(brewery: [:name, :city, :state]))
+    @beer = Beer.find_or_create_by(post_params(beer_attributes: [:name, :style, :abv]))
     @brewery.beers << @beer
     @post = Post.new(post_params(:description, :situation))
     @beer.posts << @post
+    redirect_to @post
   end
 
   def show

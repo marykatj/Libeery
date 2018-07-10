@@ -6,7 +6,9 @@ class Beer < ApplicationRecord
   validates :name, { presence: true, uniqueness: true }
   validates :style, presence: true
 
-  @@styles = []
+  accepts_nested_attributes_for :brewery
+
+  @@styles = ['Pilsner', 'IPA', '2xIPA', 'Amber Ale', 'Blonde']
 
   def self.styles
     @@styles
