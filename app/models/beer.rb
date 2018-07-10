@@ -12,7 +12,7 @@ class Beer < ApplicationRecord
     @@styles
   end
 
-  @@situations = []
+  @@situations = ["BBQ", "Snow Day"]
 
   def self.situations
     @@situations

@@ -1,4 +1,6 @@
-<<<<<<< HEAD
+<h1> Share your Beer! </h1>
+<hr>
+
 <%= form_for @post do |f| %>
 
   <%= f.fields_for :beer, @beer do |beer| %>
@@ -24,6 +26,9 @@
     <%= beer.label :abv %>
     <%= beer.text_field :abv %>
     <br>
+    <%= beer.label :situation %>
+    <%= beer.collection_select(:situation, Beer.situations, :itself, :itself) %>
+    <br>
   <% end %>
 
 
@@ -32,6 +37,3 @@
   <%= f.text_area :description %><br>
   <%= f.submit %>
 <% end %>
-=======
-
->>>>>>> mk
