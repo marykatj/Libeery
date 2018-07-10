@@ -1,1 +1,18 @@
 <h1>Login</h1>
+
+  <% if flash[:notice] %>
+    <%= flash[:notice] %>
+    <br>
+  <% end %>
+
+<%= form_with scope: "session", url: login_path, method: 'post', local: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <br>
+
+  <%= f.submit "Login" %>
+
+<% end %>
