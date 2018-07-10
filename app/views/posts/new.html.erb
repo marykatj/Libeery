@@ -1,1 +1,39 @@
+<h1> Share your Beer! </h1>
+<hr>
 
+<%= form_for @post do |f| %>
+
+  <%= f.fields_for :beer, @beer do |beer| %>
+    <%= beer.label :name %>
+    <%= beer.text_field :name, list: "beer_names" %>
+    <datalist id="beer_names">
+      <% @beer_names.each do |name| %>
+        <option value="<%= name %>"</option>
+      <% end %>
+    </datalist>
+    <br>
+    <%= beer.label :brewery %>
+    <%= beer.text_field :brewery, list: "brewery_names" %>
+    <datalist id="brewery_names">
+      <% @brewery_names.each do |name| %>
+        <option value="<%= name %>"</option>
+      <% end %>
+    </datalist>
+    <br>
+    <%= beer.label :style %>
+    <%= beer.collection_select(:style, Beer.styles, :itself, :itself) %>
+    <br>
+    <%= beer.label :abv %>
+    <%= beer.text_field :abv %>
+    <br>
+    <%= beer.label :situation %>
+    <%= beer.collection_select(:situation, Beer.situations, :itself, :itself) %>
+    <br>
+  <% end %>
+
+
+
+  <%= f.label :description %>
+  <%= f.text_area :description %><br>
+  <%= f.submit %>
+<% end %>

@@ -1,7 +1,12 @@
 <h1> Cheers <%= @user.name %>! </h1>
 
 <h3> From <%=@user.location %> <h3>
+<hr>
 
 <% @user.posts.each do |post| %>
   <%= post %>
 <% end %>
+
+
+<!-- also list their favorites, when we have that feature created.
+ -->

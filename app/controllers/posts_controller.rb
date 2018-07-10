@@ -7,24 +7,25 @@ class PostsController < ApplicationController
   end
 
   def new
+    @beer_names = Beer.all.map {|b| b.name}
+    @brewery_names = Beer.all.map {|b| b.brewery}.uniq
     @post = Post.new
+    @beer = Beer.new
   end
 
   def create
-    @brewery = Brewery.find_or_create_by(post_params(:brewery[:name], :brewery[:city], :brewery[:state]))
-    @beer = Beer.find_or_create_by(post_params(:beer[:name], :beer[:style]))
-    @brewery.beers << @beer
-    @post = Post.new(post_params(:description, :situation))
-    @beer.posts << @post
+    @post = Post.new(post_params(:description, :situation, beer_attributes: [:name, :brewery, :style, :abv]))
+    if @post.invalid?
+      render :new
+    end
+    @post.beer.save # maybe necessary to run next line?
+    @post.save
+    redirect_to post_path(@post)
   end
 
-  def show
+  def show; end
 
-  end
-
-  def edit
-
-  end
+  def edit; end
 
   def update
     if @post.update(post_params(:description, :situation))
