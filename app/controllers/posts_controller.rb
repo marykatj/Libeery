@@ -14,7 +14,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params(:description, :situation, beer_attributes: [:name, :brewery, :style, :abv]))
+    @post = Post.new(post_params(:description, :situation, :image_file, beer_attributes: [:name, :brewery, :style, :abv]))
     if @post.invalid?
       render :new
     end
@@ -28,7 +28,7 @@ class PostsController < ApplicationController
   def edit; end
 
   def update
-    if @post.update(post_params(:description, :situation))
+    if @post.update(post_params(:description, :situation, :image_file))
       redirect_to @post #change to account creation path
     else
       render :edit
