@@ -1,3 +1,9 @@
-<h1><%= @post.description %></h1>
-
-<h3><%= @post.beer.style %></h3>
+<h2>Beer: <%= @post.beer.name %></h2><br>
+<h3>Brewery: <%= @post.beer.name %></h3><br>
+<h3>Style: <%= @post.beer.style %></h3><br>
+<h3>Alcohol Percentage: <%= @post.beer.abv + "%" %></h3>
+<br>
+<br>
+<h3><%= @post.description %></h3><br>
+<hr>
+<h5>By <%= @post.user %></h5>

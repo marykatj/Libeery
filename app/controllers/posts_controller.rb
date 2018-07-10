@@ -23,13 +23,9 @@ class PostsController < ApplicationController
     redirect_to post_path(@post)
   end
 
-  def show
+  def show; end
 
-  end
-
-  def edit
-
-  end
+  def edit; end
 
   def update
     if @post.update(post_params(:description, :situation))
