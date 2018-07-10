@@ -28,8 +28,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user.destroy
-    redirect_to root #static view page for deletion
+    # session.delete(:user_id)
+    # @user.destroy # crashes for some reason 
+    # redirect_to root #static view page for deletion
   end
 
   private
