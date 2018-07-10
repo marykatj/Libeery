@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params(:name, :location, :password))
     if @user.save
-      redirect_to root_path #change to account creation path
+      redirect_to @user #change to account creation path
     else
       render :new
     end
