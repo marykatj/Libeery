@@ -10,6 +10,8 @@ Post.destroy_all
 Beer.destroy_all
 User.destroy_all
 
-j = User.create(name:"Jerk")
+j = User.new(name:"Jerk", password: '12345')
+j.password_confirmation
+j.save
 hd = Beer.create(name: "Hop-Dumbass", brewery:"Governor's Island Brewing Company", style: "IPA", abv: "6.0%")
 Post.create(description: "Pretty good", situation:"When you're having a good one", beer: hd, user: j)
