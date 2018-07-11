@@ -1,7 +1,12 @@
 class BeersController < ApplicationController
 
   def index
-    @beers = Beer.all
+    if params[:q]
+      @beers = Beer.find_by_name(params[:q])
+    else
+      @beers = Beer.all
+    end
+    @all_beers = Beer.all
   end
 
   def new
@@ -12,10 +17,9 @@ class BeersController < ApplicationController
   end
 
   def create
-
     @user = get_logged_in_user
     Beer.create(beer_params)
-      redirect_to root_path
+    redirect_to root_path
   end
 
   def show
