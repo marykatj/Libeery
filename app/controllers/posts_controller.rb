@@ -28,7 +28,7 @@ class PostsController < ApplicationController
     #   end
     #   @post.beer = @beer
     # else
-      @post = Post.find_or_create_by(post_params(:description, :situation, :user_id,  beer_attributes: [:name]))
+      @post = Post.find_or_create_by(post_params(:description, :image_file, :situation, :user_id, beer_attributes: [:name]))
     # end
     if @post.invalid?
       # @beer.destroy

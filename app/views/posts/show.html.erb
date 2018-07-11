@@ -1,8 +1,10 @@
 <h2><%= @post.beer.name %> brewed by <%= @post.beer.brewery %></h2>
 <h3>Style: <%= @post.beer.style %></h3>
-<h3>Alcohol Percentage: <%= @post.beer.abv%>%</h3>
+<h3><%= @post.beer.abv%>% Alcohol</h3>
 <br>
-<%= @post.image_file %>
+<% if @post.image_url %>
+  <img src= "<%= @post.image_url %>" alt="" height="200", width="300">
+<% end %>
 <br>
 <h3><%= @post.description %></h3><br>
 <hr>

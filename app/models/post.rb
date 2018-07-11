@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  include Rails.application.routes.url_helpers
   belongs_to :user
   belongs_to :beer
   has_many :post_categories
@@ -6,8 +7,12 @@ class Post < ApplicationRecord
 
   has_one_attached :image_file
 
-
   validates :description, length: { maximum: 300 }
+
+
+    def image_url
+      rails_blob_path(self.image_file, disposition: "attachment", only_path: true)
+    end
 
 
   @@situations = ['BBQ', 'At the Beach', "It's hot as hell out here!"]
