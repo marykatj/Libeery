@@ -16,9 +16,11 @@ class PostsController < ApplicationController
   end
 
   def create
+    # byebug
+
     @user = get_logged_in_user
-    @beer_names = Beer.all.map {|b| b.name}
-    @brewery_names = Beer.all.map {|b| b.brewery}.uniq
+    # @beer_names = Beer.all.map {|b| b.name}
+    # @brewery_names = Beer.all.map {|b| b.brewery}.uniq
     # if Beer.find_by(name: post_params(beer_attributes: [:name]))
     #   @beer = Beer.find_by(name: post_params(beer_attributes: [:name]))
     #   @post = Post.new(post_params(:description, :situation,))
@@ -29,15 +31,19 @@ class PostsController < ApplicationController
     #   end
     #   @post.beer = @beer
     # else
-      @post = Post.find_or_create_by(post_params(:description, :image_file, :situation, :user_id, category_ids:[], beer_attributes: [:name]))
-    # end
-    if @post.invalid?
-      # @beer.destroy
-      render :new
+    @post = Post.new(post_params(:description, :image_file, :situation, :user_id, :beer_id))
+    if @post.save(post_params(:description, :image_file, :situation, :user_id, :beer_id))
+      redirect_to post_path(@post)
+    else
+      # byebug
+      redirect_to beer_path(@post.beer_id) # this seems a little weird, but I couldn't find another way to access beer_id
     end
-    @post.beer.save # maybe necessary to run next line?
-    @post.save
-    redirect_to post_path(@post)
+    # end
+    # if @post.invalid?
+    #   render :new
+    # end
+    # @post.beer.save # maybe necessary to run next line?
+    # @post.save
   end
 
   def show; end

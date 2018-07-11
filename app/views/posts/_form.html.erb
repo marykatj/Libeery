@@ -1,0 +1,18 @@
+<%= form_for @post, action: post_path, method: 'post' do |f| %>
+
+      <%= f.label :description %>
+      <%= f.text_area :description %><br>
+
+      <%= f.label "Picture" %>
+      <%= f.file_field :image_file %><br>
+
+      <%= f.label :situation %>
+      <%= f.collection_select(:situation, Post.situations, :itself, :itself) %>
+
+      <input type="hidden" name="post[user_id]" value="<%= @user.id %>"><br>
+      <input type="hidden" name="post[beer_id]" value="<%= @beer.id %>"><br>
+      <%# f.hidden_field :user_id, @user.id %>
+      <%# f.hidden_field :beer_id, @beer.id %>
+
+      <%= f.submit %>
+<% end %>
