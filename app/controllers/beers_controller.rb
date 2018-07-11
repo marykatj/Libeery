@@ -24,6 +24,7 @@ class BeersController < ApplicationController
 
   def show
     @beer = Beer.find(params[:id])
+    @categories = @beer.fetch_categories
   end
 
   private
