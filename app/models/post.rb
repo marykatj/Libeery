@@ -11,7 +11,10 @@ class Post < ApplicationRecord
 
 
     def image_url
-      rails_blob_path(self.image_file, disposition: "attachment", only_path: true)
+
+      unless self.image_file_attachment.nil?
+        rails_blob_path(self.image_file, disposition: "attachment", only_path: true)
+      end
     end
 
 

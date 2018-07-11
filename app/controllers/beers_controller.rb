@@ -10,6 +10,7 @@ class BeersController < ApplicationController
   end
 
   def new
+
     @beer = Beer.new
     @beer.posts.build
     @user = get_logged_in_user
@@ -23,6 +24,7 @@ class BeersController < ApplicationController
   end
 
   def show
+
     @beer = Beer.find(params[:id])
     @categories = @beer.fetch_categories
   end

@@ -1,4 +1,4 @@
-<h2><%= @post.beer.name %> brewed by <%= @post.beer.brewery %></h2>
+<h2><%= @beer.name %> brewed by <%= @beer.brewery %></h2>
 <h4> Style: <%= @beer.style %></h4>
 <h4><%= @beer.abv %>% Alcohol</h4>
 
@@ -8,5 +8,25 @@
 <ul>
   <% @categories.each do |cat| %>
     <li> <%= cat.name %> </li>
+  <% end %>
+</ul>
+
+<!-- new post form -->
+
+<hr>
+<ul>
+  <% @beer.posts.each do |post| %>
+  <li>
+
+    <% if post.image_url %>
+      <img src= "<%= post.image_url %>" alt="" height="200", width="300">
+    <% end %>
+    <br>
+    <h3><%= post.description %></h3><br>
+    <h3><%= post.situation %></h3><br>
+    <h5>By <%= post.user.name %></h5>
+
+  </li>
+  <hr>
   <% end %>
 </ul>
