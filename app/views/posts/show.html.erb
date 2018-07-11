@@ -2,10 +2,8 @@
 <h3>Style: <%= @post.beer.style %></h3>
 <h3><%= @post.beer.abv%>% Alcohol</h3>
 <br>
-<% if @post.image_url %>
   <img src= "<%= @post.image_url %>" alt="" height="200", width="300">
+  <h3><%= @post.description %></h3><br>
+  <hr>
+  <h5>By <%= @post.user.name %></h5>
 <% end %>
-<br>
-<h3><%= @post.description %></h3><br>
-<hr>
-<h5>By <%= @post.user.name %></h5>
