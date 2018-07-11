@@ -1,0 +1,7 @@
+<h1> Find a Beer! </h1>
+
+<% @beers.each do |beer| %>
+  <%= link_to beer.name, beer_path(beer) %>
+  <% end %>
+
+  <h4>Can't find your beer? <%= button_to "Create a New Beer", new_beer_path, method: 'get'%></h4>  
