@@ -2,10 +2,15 @@
 
   <%= form_with url: beers_path, method: 'get' do |f| %>
     <%= f.label :q, "Find a Beer" %>
-    <%= f.search_field :q %>
-    <%= f.submit "Search" %>
-
+    <%= f.search_field :q, list: "beers" %>
+    <datalist id="beers">
+      <% @all_beers.each do |beer| %>
+        <option value="<%= beer.name %>"</option>
+      <% end %>
+    </datalist>
+    <%= f.submit "Search", name: params[:q] %>
   <% end %>
+
 <ul>
 
 <% @beers.each do |beer| %>
