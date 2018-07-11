@@ -1,17 +1,15 @@
-<<<<<<< HEAD
 <h2>Beer: <%= @post.beer.name %></h2><br>
 <h3>Brewery: <%= @post.beer.brewery %></h3><br>
 <h3>Style: <%= @post.beer.style %></h3><br>
 <h3>Alcohol Percentage: <%= @post.beer.abv + "%" %></h3>
 <br>
+<h3>Beer Description:</h3>
+  <ul>
+<% @post.categories.each do |cat| %>
+  <li> <%= cat.name %> </li>
+<% end %>
+</ul>
 <br>
 <h3><%= @post.description %></h3><br>
 <hr>
 <h5>By <%= @post.user.name %></h5>
-=======
-<h1><%= @post.beer.name %></h1>
-
-<h1><%= @post.description %></h1>
-
-<h3><%= @post.beer.style %></h3>
->>>>>>> devin
