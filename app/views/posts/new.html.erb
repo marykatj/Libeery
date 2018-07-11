@@ -14,6 +14,9 @@ Alcohol Percentage: <%= @beer.abv %>
       <%= f.label "Picture" %>
       <%= f.file_field :image_file %><br>
 
+      <%= f.label :situation %>
+      <%= f.collection_select(:situation, Post.situations, :itself, :itself) %>
+
       <input type="hidden" name="beer[posts_attributes][0][user_id]" value="<%= @user.id %>"><br>
       <%# hidden_field_tag :user_id, @user.id %>
 

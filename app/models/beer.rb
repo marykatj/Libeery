@@ -15,17 +15,8 @@ class Beer < ApplicationRecord
     @@styles
   end
 
-  @@situations = ['BBQ', 'At the Beach', "It's hot as hell out here!"]
-
-  def self.situations
-    @@situations
-  end
-
-<<<<<<< HEAD
-=======
   def self.find_by_name(search_term)
     Beer.all.select {|b| b.name.downcase.include?(search_term.downcase)}
   end
 
->>>>>>> devin
 end
