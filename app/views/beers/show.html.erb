@@ -2,8 +2,6 @@
 <h4> Style: <%= @beer.style %></h4>
 <h4><%= @beer.abv %>% Alcohol</h4>
 
-<h5> <%= button_to "Tell us what you think about this beer!", new_post_path, method: :get %> </h5>
-
 <h4>Our users have described this beer as:</h4>
 <ul>
   <% @categories.each do |cat| %>
@@ -12,6 +10,12 @@
 </ul>
 
 <!-- new post form -->
+<div>
+
+<h4>Tell us what you think about this beer!</h4>
+<%= render 'posts/form' %>
+
+</div>
 
 <hr>
 <ul>

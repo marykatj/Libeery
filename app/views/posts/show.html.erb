@@ -1,4 +1,4 @@
-<h2><%= @post.beer.name %> brewed by <%= @post.beer.brewery %></h2>
+<h2><%= link_to @post.beer.name, beer_path(@post.beer) %> brewed by <%= @post.beer.brewery %></h2>
 <h3>Style: <%= @post.beer.style %></h3>
 <h3><%= @post.beer.abv%>% Alcohol</h3>
 <br>
