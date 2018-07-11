@@ -35,5 +35,9 @@
 
   <%= f.label :description %>
   <%= f.text_area :description %><br>
+
+  <%= f.label :situation %>
+  <%= f.collection_select(:situation, Beer.situations, :itself, :itself) %>
+  <br>
   <%= f.submit %>
 <% end %>

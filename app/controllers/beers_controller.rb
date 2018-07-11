@@ -8,9 +8,11 @@ class BeersController < ApplicationController
     @beer = Beer.new
     @beer.posts.build
     @user = get_logged_in_user
+
   end
 
   def create
+
     @user = get_logged_in_user
     Beer.create(beer_params)
       redirect_to root_path
