@@ -20,8 +20,8 @@
     <%= post.label :description %>
     <%= post.text_area :description %><br>
 
-    <%# hidden_field :user_id, @user.id %>
-    <input type="hidden" name="beer[posts_attributes][0][user_id]" id="<%= @user.id %>">
+    <input type="hidden" name="beer[posts_attributes][0][user_id]" value="<%= @user.id %>">
+    <%# hidden_field_tag :user_id, @user.id %>
 
   <% end %>
 

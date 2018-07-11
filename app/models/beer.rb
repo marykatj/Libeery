@@ -14,7 +14,11 @@ class Beer < ApplicationRecord
     @@styles
   end
 
-  @@situations = []
+  @@situations = ['BBQ', 'At the Beach', "It's hot as hell out here!"]
+
+  def self.situations
+    @@situations
+  end
 
   def self.situations
     @@situations
