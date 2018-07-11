@@ -11,6 +11,7 @@ class PostsController < ApplicationController
     @beer_names = Beer.all.map {|b| b.name}
     @brewery_names = Beer.all.map {|b| b.brewery}.uniq
     @post = Post.new
+
     @beer = Beer.new
   end
 

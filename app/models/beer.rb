@@ -19,4 +19,19 @@ class Beer < ApplicationRecord
     Beer.all.select {|b| b.name.downcase.include?(search_term.downcase)}
   end
 
+  # def fetch_posts
+  #   Post.all.select do |post|
+  #     post.beer.name == self.name
+  #   end
+  # end
+  def fetch_posts
+    Post.where("beer_id = ?", self.id)
+  end
+
+  def fetch_categories
+    categories = []
+    fetch_posts.each {|post| categories.concat(post.categories)}
+    categories.uniq
+  end
+
 end

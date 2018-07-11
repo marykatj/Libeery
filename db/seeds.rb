@@ -47,5 +47,9 @@ Category.create(name: "Bitter")
 j = User.new(name:"Jerk", location: "Jerk-Town", password: '12345')
 j.password_confirmation
 j.save
+
 hd = Beer.create(name: "Hop-Dumbass", brewery:"Governor's Island Brewing Company", style: "IPA", abv: "6.0%")
+vna = Beer.create(name: "Very Normal Ale", brewery:"Anonymous Brew", style: "Pilsner", abv: "5.0%")
+
 Post.create(description: "Pretty good", situation:"When you're having a good one", beer: hd, user: j).categories << Category.find_by(name: 'Hoppy') << Category.find_by(name: 'Dry') << Category.find_by(name: 'Piney')
+Post.create(description: "The worst.", situation:"Never, stay away", beer: vna, user: j).categories << Category.find_by(name: 'Thin')
