@@ -1,0 +1,30 @@
+
+<%= form_for @beer do |f| %>
+
+
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+
+  <%= f.label :brewery %>
+  <%= f.text_field :brewery %><br>
+
+  <%= f.label :style %>
+  <%= f.collection_select(:style, Beer.styles, :itself, :itself) %><br>
+
+  <%= f.label :abv %>
+  <%= f.text_field :abv %><br>
+
+
+  <%= f.fields_for :posts do |post| %>
+
+    <%= post.label :description %>
+    <%= post.text_area :description %><br>
+
+    <input type="hidden" name="beer[posts_attributes][0][user_id]" value="<%= @user.id %>">
+    <%# hidden_field_tag :user_id, @user.id %>
+
+  <% end %>
+
+  <%= f.submit %>
+
+<% end %>

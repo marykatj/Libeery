@@ -6,13 +6,15 @@ class Beer < ApplicationRecord
   validates :brewery, { presence: true }
   validates :style, presence: true
 
+  accepts_nested_attributes_for :posts
+
   @@styles = ['Pilsner', 'IPA', '2xIPA', 'Amber Ale', 'Blonde']
 
   def self.styles
     @@styles
   end
 
-  @@situations = ["BBQ", "Snow Day", "Working Late", ""]
+  @@situations = ['BBQ', 'At the Beach', "It's hot as hell out here!"]
 
   def self.situations
     @@situations

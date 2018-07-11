@@ -31,11 +31,13 @@
     <br>
   <% end %>
 
+  <%= hidden_field_tag :user_id, @user.id %>
+
   <%= f.label :description %>
-  <%= f.text_area :description %>
-  <br>
-  <%= f.label "Picture" %>
-  <%= f.file_field :image_file %>
+  <%= f.text_area :description %><br>
+
+  <%= f.label :situation %>
+  <%= f.collection_select(:situation, Beer.situations, :itself, :itself) %>
   <br>
   <%= f.submit %>
 <% end %>

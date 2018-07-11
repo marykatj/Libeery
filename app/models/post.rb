@@ -7,6 +7,6 @@ class Post < ApplicationRecord
 
   validates :description, length: { maximum: 300 }
 
-  accepts_nested_attributes_for :beer
+  
 
 end

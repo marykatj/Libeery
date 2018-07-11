@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   end
 
   def new
+    @user = get_logged_in_user
     @beer_names = Beer.all.map {|b| b.name}
     @brewery_names = Beer.all.map {|b| b.brewery}.uniq
     @post = Post.new
@@ -14,8 +15,23 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params(:description, :situation, :image_file, beer_attributes: [:name, :brewery, :style, :abv]))
+    @user = get_logged_in_user
+    @beer_names = Beer.all.map {|b| b.name}
+    @brewery_names = Beer.all.map {|b| b.brewery}.uniq
+    # if Beer.find_by(name: post_params(beer_attributes: [:name]))
+    #   @beer = Beer.find_by(name: post_params(beer_attributes: [:name]))
+    #   @post = Post.new(post_params(:description, :situation,))
+    #   if @beer.invalid?
+    #     render :new
+    #   else
+    #     @beer.save
+    #   end
+    #   @post.beer = @beer
+    # else
+      @post = Post.find_or_create_by(post_params(:description, :situation, :user_id,  beer_attributes: [:name]))
+    # end
     if @post.invalid?
+      # @beer.destroy
       render :new
     end
     @post.beer.save # maybe necessary to run next line?
