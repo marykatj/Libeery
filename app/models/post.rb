@@ -18,7 +18,7 @@ class Post < ApplicationRecord
     end
 
 
-  @@situations = ['BBQ', 'At the Beach', "It's hot as hell out here!"]
+  @@situations = ['BBQ', 'At the Beach', "Snow Day", "The Game is on", "Beer Session", "With a Meal", "Breakfast Beer", "Day Drinking", "Lunch Time", "Share with Friends", "Beer Hall", "Brewery Tasting Room", "Going Out", "Movie Night"].sort
 
   def self.situations
     @@situations

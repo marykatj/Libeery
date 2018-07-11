@@ -12,7 +12,7 @@
   <%= f.collection_select(:style, Beer.styles, :itself, :itself) %><br>
 
   <%= f.label :abv %>
-  <%= f.number_field :abv %><br>
+  <%= f.number_field :abv, step: 0.1 %><br>
 
 
     <%= f.fields_for :posts do |post| %>
@@ -25,6 +25,8 @@
 
       <%= post.label :situation %>
       <%= post.collection_select(:situation, Post.situations, :itself, :itself) %><br>
+
+      <%= post.collection_check_boxes(:category_ids, Category.all, :id, :name) %>
 
       <input type="hidden" name="beer[posts_attributes][0][user_id]" value="<%= @user.id %>">
       <%# hidden_field_tag :user_id, @user.id %>

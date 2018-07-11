@@ -4,6 +4,10 @@
 <br>
   <img src= "<%= @post.image_url %>" alt="" height="200", width="300">
   <h3><%= @post.description %></h3><br>
+  <ul>
+    <% @post.categories.each do |category|%>
+      <li><%= category.name %></li>
+      <%end%>
+    </ul>
   <hr>
   <h5>By <%= @post.user.name %></h5>
-<% end %>

@@ -10,7 +10,7 @@ class Beer < ApplicationRecord
 
   accepts_nested_attributes_for :posts
 
-  @@styles = ['Pilsner', 'IPA', '2xIPA', 'Amber Ale', 'Blonde']
+  @@styles = ['Pilsner', 'IPA', 'Double IPA', 'Triple IPA', 'Amber Ale', 'Blonde', 'Brown Ale', 'Pale Ale', 'Lager', 'Belgian', 'Red IPA', 'Red Ale', 'Stout', 'Poter', 'Imperial Stout', 'Wheat', 'Hefeweizen', 'Saison', 'Farmhouse', 'Milk Stout', 'English Bitter', 'Dunkel', 'Dopplebock', 'Kolsch', 'Oktoberfest', 'Helles', 'Pumpkin Beer', 'NE IPA', 'Rye', 'Double Dry Hopped', 'Session IPA', "Pale Lager", 'IPL', 'Vienna Style'].sort
 
   def self.styles
     @@styles
