@@ -1,8 +1,8 @@
-<h2>Beer: <%= @post.beer.name %></h2><br>
-<h3>Brewery: <%= @post.beer.brewery %></h3><br>
-<h3>Style: <%= @post.beer.style %></h3><br>
-<h3>Alcohol Percentage: <%= @post.beer.abv + "%" %></h3>
+<h2><%= @post.beer.name %> brewed by <%= @post.beer.brewery %></h2>
+<h3>Style: <%= @post.beer.style %></h3>
+<h3>Alcohol Percentage: <%= @post.beer.abv%>%</h3>
 <br>
+<%= @post.image_file %>
 <br>
 <h3><%= @post.description %></h3><br>
 <hr>

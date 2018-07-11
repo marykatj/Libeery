@@ -19,7 +19,7 @@ class BeersController < ApplicationController
   def create
     @user = get_logged_in_user
     Beer.create(beer_params)
-    redirect_to root_path
+    redirect_to user_path(@user)
   end
 
   def show
