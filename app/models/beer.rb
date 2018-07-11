@@ -5,6 +5,7 @@ class Beer < ApplicationRecord
   validates :name, { presence: true, uniqueness: true }
   validates :brewery, { presence: true }
   validates :style, presence: true
+  validates :abv, presence: true
 
   accepts_nested_attributes_for :posts
 

@@ -2,14 +2,9 @@
 <<<<<<< HEAD
 
 <h3> From <%=@user.location %> <h3>
-=======
-
-<h3> From <%=@user.location %> <h3>
->>>>>>> devin
-<hr>
 
 <% @user.posts.each do |post| %>
-  <%= post.description %>
+  <%= post %>
 <% end %>
 
 <%= button_to "Logout", login_path, method: 'delete' %>

@@ -1,6 +1,6 @@
+<h1> Share your Beer! </h1>
 
-<%= form_for @beer do |f| %>
-
+<%= form_for @beer do |f| %> 
 
   <%= f.label :name %>
   <%= f.text_field :name %><br>
@@ -15,15 +15,21 @@
   <%= f.text_field :abv %><br>
 
 
-  <%= f.fields_for :posts do |post| %>
+    <%= f.fields_for :posts do |post| %>
 
-    <%= post.label :description %>
-    <%= post.text_area :description %><br>
+      <%= f.label "Picture" %>
+      <%= f.file_field :image_file %><br>
 
-    <input type="hidden" name="beer[posts_attributes][0][user_id]" value="<%= @user.id %>">
-    <%# hidden_field_tag :user_id, @user.id %>
+      <%= post.label :description %>
+      <%= post.text_area :description %><br>
 
-  <% end %>
+      <%= f.label :situation %>
+      <%= f.collection_select(:situation, Beer.situations, :itself, :itself) %><br>
+
+      <input type="hidden" name="beer[posts_attributes][0][user_id]" value="<%= @user.id %>">
+      <%# hidden_field_tag :user_id, @user.id %>
+
+    <% end %>
 
   <%= f.submit %>
 
