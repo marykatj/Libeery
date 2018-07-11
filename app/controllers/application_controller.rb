@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
 
   before_action :authorized?
+  helper_method :get_logged_in_user
+
 
   private
   def log_in_user(user_id)
