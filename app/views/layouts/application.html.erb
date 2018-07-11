@@ -10,6 +10,22 @@
   </head>
 
   <body>
+
+    <div class="header">
+
+    <h1>Libeery</h1>
+    <div >
+      <%= link_to "Beer!", beers_path %>
+    </div>
+    <div>
+    <% if get_logged_in_user %>
+      <%= link_to "Profile", user_path(get_logged_in_user) %>
+      <%= link_to "Logout", login_path, method: 'delete' %>
+    <% end %>
+    </div>
+    <hr>
+  </div>
+
     <%= yield %>
   </body>
 </html>
