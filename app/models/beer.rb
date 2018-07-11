@@ -20,8 +20,8 @@ class Beer < ApplicationRecord
     @@situations
   end
 
-  def self.situations
-    @@situations
+  def self.find_by_name(search_term)
+    Beer.all.select {|b| b.name.downcase.include?(search_term.downcase)}
   end
 
 end
