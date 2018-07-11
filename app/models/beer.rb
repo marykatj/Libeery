@@ -6,6 +6,7 @@ class Beer < ApplicationRecord
   validates :brewery, { presence: true }
   validates :style, presence: true
   validates :abv, presence: true
+  validates :abv, length: { maximum: 3 }
 
   accepts_nested_attributes_for :posts
 
