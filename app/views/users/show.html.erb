@@ -1,18 +1,11 @@
 <h1> Cheers <%= @user.name %>! </h1>
 
 <h3> From <%=@user.location %> <h3>
-<<<<<<< HEAD
 
-<% @user.posts.each do |post| %>
-  <%= post %>
-=======
-<hr>
 <ul>
-
-<% @user.posts.each do |post| %>
-  <li> <%= link_to post.description, post_path(post) %> </li>
->>>>>>> devin
-<% end %>
+  <% @user.posts.each do |post| %>
+    <li> <%= link_to post.description, post_path(post) %> </li>
+  <% end %>
 </ul>
 
 <%= button_to "Logout", login_path, method: 'delete' %>
