@@ -29,7 +29,7 @@ From <%=@user.location %><%= button_to "Edit", edit_user_path(@user), method: 'g
 <ul>
     <% @user.favorites.each do |fav| %>
     <li>
-      <%= fav.beer.name %>
+      <%= link_to fav.beer.name, beer_path(fav.beer) %>
     <% end %>
   </li>
 </ul>

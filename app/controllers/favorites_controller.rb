@@ -9,11 +9,12 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    @favorites = Favorite.where("user_id = ?", logged_in_user_id)
-    @favorite = @favorites.find(params.require(:favorite).permit(:beer_id))
-    @beer = @favorite.beer.name
+    # @user = get_logged_in_user
+    # @favorite = Favorite.find(params.require(:favorite).permit(:beer_id))
+    # @beer = @favorite.beer.name
+    @favorite = Favorite.find(params[:id])
     @favorite.destroy
     flash[:notice] = "Unfavorited #{@beer}"
-    redirect_to beer_path
+    redirect_to beers_path
   end
 end
