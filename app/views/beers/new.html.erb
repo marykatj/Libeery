@@ -25,8 +25,7 @@
 
       <%= post.label :situation %>
       <%= post.collection_select(:situation, Post.situations, :itself, :itself) %><br>
-
-      <%= post.collection_check_boxes(:category_ids, Category.all, :id, :name) %>
+      <%= post.collection_check_boxes(:category_ids, Category.all, :id, :name) %><br>
 
       <input type="hidden" name="beer[posts_attributes][0][user_id]" value="<%= @user.id %>">
       <%# hidden_field_tag :user_id, @user.id %>
