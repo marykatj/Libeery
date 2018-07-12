@@ -1,6 +1,8 @@
 class Beer < ApplicationRecord
   has_many :posts
   has_many :users, through: :posts
+  has_many :favorites
+  has_many :users, through: :favorites
 
   validates :name, { presence: true, uniqueness: true }
   validates :brewery, { presence: true }
