@@ -2,11 +2,28 @@
 
 From <%=@user.location %><%= button_to "Edit", edit_user_path(@user), method: 'get'%>
 <hr>
-<ul>
 
-<% @user.posts.each do |post| %>
-  <li> <%= link_to post.description, post_path(post) %> </li>
-<% end %>
+<ul>
+  <% @user.posts.each do |post| %>
+  <li>
+    <%= link_to "Posted on #{post.stringify_datetime}", post_path(post) %>
+    <br>
+    <% if post.image_url %>
+      <img src= "<%= post.image_url %>" alt="" height="200", width="300">
+    <% end %>
+    <br>
+    <h3><%= post.description %></h3><br>
+    <ul>
+      <% post.categories.each do |category|%>
+        <li><%= category.name %></li>
+        <%end%>
+      </ul>
+    <h4>Best Enjoyed: <%= post.situation %></h4>
+    <h5>By <%= post.user.name %></h5>
+
+  </li>
+  <hr>
+  <% end %>
 </ul>
 
 <%# button_to "Logout", login_path, method: 'delete' %>

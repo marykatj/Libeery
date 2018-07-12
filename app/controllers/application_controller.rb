@@ -3,6 +3,9 @@ class ApplicationController < ActionController::Base
   before_action :authorized?
   helper_method :get_logged_in_user
 
+  def home
+    @user = User.new
+  end
 
   private
   def log_in_user(user_id)

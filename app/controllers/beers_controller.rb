@@ -1,5 +1,7 @@
 class BeersController < ApplicationController
 
+  skip_before_action :authorized?, only: %i[index]
+
   def index
     if params[:q]
       @beers = Beer.find_by_name_or_brewery(params[:q])
@@ -7,6 +9,7 @@ class BeersController < ApplicationController
       @beers = Beer.all
     end
     @all_beers = Beer.all
+    @beer_count = @all_beers.count
   end
 
   def new

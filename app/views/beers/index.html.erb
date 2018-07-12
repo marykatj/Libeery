@@ -1,4 +1,7 @@
+
 <h1> Find a Beer! </h1>
+
+<h3><%= @beer_count %> beers and counting!</h3>
 
   <%= form_with url: beers_path, method: 'get', local: true do |f| %>
     <%= f.label :q, "Find a Beer" %>
