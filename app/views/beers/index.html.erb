@@ -1,6 +1,11 @@
 
 <h1> Find a Beer! </h1>
 
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<% end %>
+<br>
+
 <h3><%= @beer_count %> beers and counting!</h3>
 
   <%= form_with url: beers_path, method: 'get', local: true do |f| %>
@@ -17,9 +22,15 @@
 <ul>
 
 <% @beers.each do |beer| %>
-  <li> <%= link_to beer.name, beer_path(beer) %> - <%= beer.brewery %> </li>
-  <% end %>
-
+  <li> <%= link_to beer.name, beer_path(beer) %> - <%= beer.brewery %>
+      <% if get_logged_in_user %>
+        <%= form_for @favorite, url: favorites_path do |f| %>
+          <input type= 'hidden' name= "favorite[beer_id]" value= "<%= beer.id %>">
+          <%= f.submit %>
+        <% end %>
+      <% end %>
+    <% end %>
 </ul>
+
 
   <h4>Can't find your beer? <%= button_to "Create a New Beer", new_beer_path, method: 'get'%></h4>

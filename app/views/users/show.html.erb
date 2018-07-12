@@ -26,5 +26,13 @@ From <%=@user.location %><%= button_to "Edit", edit_user_path(@user), method: 'g
   <% end %>
 </ul>
 
+<ul>
+    <% @user.favorites.each do |fav| %>
+    <li>
+      <%= fav.beer.name %>
+    <% end %>
+  </li>
+</ul>
+
 <%# button_to "Logout", login_path, method: 'delete' %>
 <%# button_to "Delete Your Account", user_path(@user), method: 'delete' %>
