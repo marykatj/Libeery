@@ -9,7 +9,7 @@
   <%= f.text_field :brewery %><br>
 
   <%= f.label :style %>
-  <%= f.collection_select(:style, Beer.styles, :itself, :itself) %><br>
+  <%= f.collection_select(:style, Beer.styles, :itself, :itself, {prompt: "--Select a Style--"}) %><br>
 
   <%= f.label :abv %>
   <%= f.number_field :abv, step: 0.1 %><br>

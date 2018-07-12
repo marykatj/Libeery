@@ -10,14 +10,22 @@ class Beer < ApplicationRecord
 
   accepts_nested_attributes_for :posts
 
-  @@styles = ['Pilsner', 'IPA', 'Double IPA', 'Triple IPA', 'Amber Ale', 'Blonde', 'Brown Ale', 'Pale Ale', 'Lager', 'Belgian', 'Red IPA', 'Red Ale', 'Stout', 'Poter', 'Imperial Stout', 'Wheat', 'Hefeweizen', 'Saison', 'Farmhouse', 'Milk Stout', 'English Bitter', 'Dunkel', 'Dopplebock', 'Kolsch', 'Oktoberfest', 'Helles', 'Pumpkin Beer', 'NE IPA', 'Rye', 'Double Dry Hopped', 'Session IPA', "Pale Lager", 'IPL', 'Vienna Style'].sort
+  # @@styles = ['Pilsner', 'IPA', 'Double IPA', 'Triple IPA', 'Amber Ale', 'Blonde', 'Brown Ale', 'Pale Ale', 'Lager', 'Belgian', 'Red IPA', 'Red Ale', 'Stout', 'Poter', 'Imperial Stout', 'Wheat', 'Hefeweizen', 'Saison', 'Farmhouse', 'Milk Stout', 'English Bitter', 'Dunkel', 'Dopplebock', 'Kolsch', 'Oktoberfest', 'Helles', 'Pumpkin Beer', 'NE IPA', 'Rye', 'Double Dry Hopped', 'Session IPA', "Pale Lager", 'IPL', 'Vienna Style'].sort
+
+  # def self.styles
+  #   @@styles
+  # end
+
+  @@styles = self.all.map {|beer| beer.style}.uniq.sort
 
   def self.styles
     @@styles
   end
 
-  def self.find_by_name(search_term)
-    Beer.all.select {|b| b.name.downcase.include?(search_term.downcase)}
+  def self.find_by_name_or_brewery(search_term)
+    Beer.all.select do |b|
+      "#{b.name} #{b.brewery}".downcase.include?(search_term.downcase)
+    end
   end
 
   # def fetch_posts

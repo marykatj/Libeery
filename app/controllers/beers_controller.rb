@@ -2,7 +2,7 @@ class BeersController < ApplicationController
 
   def index
     if params[:q]
-      @beers = Beer.find_by_name(params[:q])
+      @beers = Beer.find_by_name_or_brewery(params[:q])
     else
       @beers = Beer.all
     end

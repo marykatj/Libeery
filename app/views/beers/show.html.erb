@@ -27,7 +27,12 @@
     <% end %>
     <br>
     <h3><%= post.description %></h3><br>
-    <h3><%= post.situation %></h3><br>
+    <ul>
+      <% post.categories.each do |category|%>
+        <li><%= category.name %></li>
+        <%end%>
+      </ul>
+    <h4>Best Enjoyed: <%= @post.situation %></h4>
     <h5>By <%= post.user.name %></h5>
 
   </li>
