@@ -24,4 +24,8 @@ class Post < ApplicationRecord
     @@situations
   end
 
+  def stringify_datetime
+    self.created_at.strftime("%B %-d, %Y, at %l:%M %P")
+  end
+
 end

@@ -21,7 +21,8 @@
 <ul>
   <% @beer.posts.each do |post| %>
   <li>
-
+    <%= link_to "Posted on #{post.stringify_datetime}", post_path(post) %>
+    <br>
     <% if post.image_url %>
       <img src= "<%= post.image_url %>" alt="" height="200", width="300">
     <% end %>
