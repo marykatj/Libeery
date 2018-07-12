@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root 'application#home'
-  resources :posts
-  resources :beers
-  resources :users
+  resources :posts, only: [:index, :new, :create, :show]
+  resources :beers, only: [:index, :new, :create, :show]    #update/edit
+  resources :users, except: [:index, :destroy]
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/login', to: 'sessions#destroy'

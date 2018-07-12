@@ -1,0 +1,10 @@
+<h1> Make Some Changes </h1>
+
+<h3><%= @user.name %></h3>
+<%= form_for @user do |f| %>
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+  <br>
+  <%= f.submit "Update Account" %>
+
+<% end %>

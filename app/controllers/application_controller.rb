@@ -19,6 +19,7 @@ class ApplicationController < ActionController::Base
 
   def authorized?
     redirect_to login_path unless !!get_logged_in_user
+    #specific user 
   end
 
 end

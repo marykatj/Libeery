@@ -48,21 +48,21 @@ class PostsController < ApplicationController
 
   def show; end
 
-  def edit; end
+  # def edit; end
+  #
+  # def update
+  #   if @post.update(post_params(:description, :situation, :image_file))
+  #     redirect_to @post #change to account creation path
+  #   else
+  #     render :edit
+  #   end
+  # end
 
-  def update
-    if @post.update(post_params(:description, :situation, :image_file))
-      redirect_to @post #change to account creation path
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    @user = @post.user
-    @post.destroy
-    redirect_to @user
-  end
+  # def destroy
+  #   @user = @post.user
+  #   @post.destroy
+  #   redirect_to @user
+  # end
 
   private
   def post_params(*args)

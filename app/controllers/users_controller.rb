@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   skip_before_action :authorized?, only: %i[new create]
-  before_action :fetch_user, only: [:show, :edit, :update, :destroy]
+  before_action :fetch_user, only: [:show, :edit, :update]
 
   def new
     @user = User.new
@@ -30,11 +30,11 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
-    # session.delete(:user_id)
-    # @user.destroy # crashes for some reason
-    # redirect_to root #static view page for deletion
-  end
+  # def destroy
+  #   session.delete(:user_id)
+  #   @user.destroy # crashes for some reason
+  #   redirect_to root #static view page for deletion
+  # end
 
   private
 

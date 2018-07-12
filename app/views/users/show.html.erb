@@ -1,6 +1,6 @@
 <h1> Cheers <%= @user.name %>! </h1>
 
-<h3> From <%=@user.location %> <h3>
+From <%=@user.location %><%= button_to "Edit", edit_user_path(@user), method: 'get'%>
 <hr>
 <ul>
 

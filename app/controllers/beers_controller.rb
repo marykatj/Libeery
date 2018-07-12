@@ -10,11 +10,9 @@ class BeersController < ApplicationController
   end
 
   def new
-
     @beer = Beer.new
     @beer.posts.build
     @user = get_logged_in_user
-
   end
 
   def create
