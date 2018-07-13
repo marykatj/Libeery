@@ -87,5 +87,5 @@ beers.map! do |beer|
 end
 
 beers.each do |beer|
-  # Beer.create(name: beer[0], brewery: beer[1], style: beer[2], abv: beer[3])
+  Beer.create(name: beer[0], brewery: beer[1], style: beer[2], abv: beer[3])
 end

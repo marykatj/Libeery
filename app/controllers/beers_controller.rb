@@ -29,6 +29,7 @@ class BeersController < ApplicationController
 
   def show
     @beer = Beer.find(params[:id])
+    @favorite = Favorite.new
     @categories = @beer.fetch_categories
 
     @user = get_logged_in_user
