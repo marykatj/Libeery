@@ -1,0 +1,22 @@
+<h1 class="text-center"> Discover New Beer! </h1>
+
+<div class="list-group text-center">
+
+  <%= form_with url: beer_filter_results_path, method: 'get', local: true do |f| %>
+
+  <li class="list-group-item" name= "style"><%= f.label :style %>
+  <%= f.collection_select(:style, Beer.styles, :itself, :itself, {prompt: "--Select a Style--"})%></li>
+
+    <%= f.fields_for :posts do |post| %>
+
+      <li class="list-group-item" name= "situation"><%= post.label :situation %>
+      <%= post.collection_select(:situation, Post.situations, :itself, :itself)%></li>
+      <li class="list-group-item"><%= post.collection_check_boxes(:category_ids, Category.all, :id, :name)%></li>
+
+    <% end %>
+
+  <%= button_to "Search" %>
+
+<% end %>
+
+</div>
