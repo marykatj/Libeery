@@ -10,13 +10,17 @@
   </head>
 
   <body>
-    <div id="main-container" class="container-fluid" >
+    <div id="main-container" class="container-fluid" style="background: linear-gradient(#ffffe3, white);">
 
       <header class="page-header">
 
       <h1 style="" class="text-center">Libeery</h1>
       <div class="text-center">
-        <h2> <%= link_to "Search the Full List", beers_path %> </h2>
+        <h2> <%= link_to "Search for Beer", beers_path %> </h2>
+      </div>
+      <div class="text-center">
+        <h3>-or-</h3>
+        <h2> <%= link_to "See the Full List", full_list_path %> </h2>
       </div>
       <div class="text-center">
       <% if get_logged_in_user %>
