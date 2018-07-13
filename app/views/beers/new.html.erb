@@ -8,7 +8,12 @@
   <%= f.text_field :name %></li>
 
   <li class="list-group-item"><%= f.label :brewery %>
-  <%= f.text_field :brewery %></li>
+  <%= f.text_field :brewery, list: "breweries" %></li>
+  <datalist id="breweries">
+    <% @breweries.each do |brewery| %>
+      <option value="<%= brewery %>"</option>
+    <% end %>
+  </datalist>
 
   <li class="list-group-item"><%= f.label :style %>
   <%= f.collection_select(:style, Beer.styles, :itself, :itself, {prompt: "--Select a Style--"}) %></li>

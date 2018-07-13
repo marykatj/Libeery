@@ -49,4 +49,8 @@ class Beer < ApplicationRecord
     categories.uniq
   end
 
+  def self.fetch_breweries
+    Beer.all.map {|beer| beer.brewery}.uniq
+  end
+
 end

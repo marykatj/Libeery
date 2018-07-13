@@ -54,19 +54,4 @@
     <% end %>
   </div>
 
-
 </div>
-
-<% @beers.each do |beer| %>
-  <li> <%= link_to beer.name, beer_path(beer) %> - <%= beer.brewery %>
-      <% if get_logged_in_user %>
-        <%= form_for @favorite, url: favorites_path do |f| %>
-        <input type= 'hidden' name= "favorite[beer_id]" value= "<%= beer.id %>">
-          <%= f.submit %>
-        <% end %>
-      <% end %>
-    <% end %>
-</ul>
-
-
-  

@@ -15,6 +15,7 @@ class BeersController < ApplicationController
   end
 
   def new
+    @breweries = Beer.fetch_breweries
     @beer = Beer.new
     @beer.posts.build
     @user = get_logged_in_user
