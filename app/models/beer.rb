@@ -30,6 +30,10 @@ class Beer < ApplicationRecord
     end
   end
 
+  def self.featured_beers
+    Beer.all[-12, 12]
+  end
+
   # def fetch_posts
   #   Post.all.select do |post|
   #     post.beer.name == self.name

@@ -1,25 +1,44 @@
+<div class="container" class="text-center">
 
-<h1> Find a Beer! </h1>
+  <h1> Find a Beer! </h1>
 
-<h3><%= @beer_count %> beers and counting!</h3>
+  <h3><%= @beer_count %> beers and counting!</h3>
 
-  <%= form_with url: beers_path, method: 'get', local: true do |f| %>
-    <%= f.label :q, "Find a Beer" %>
-    <%= f.search_field :q, list: "beers", placeholder: "Enter beer or brewery", size: 50 %>
-    <datalist id="beers">
-      <% @all_beers.each do |beer| %>
-        <option value="<%= beer.name %> - <%= beer.brewery %>"</option>
-      <% end %>
-    </datalist>
-    <%= f.submit "Search", name: nil %>
-  <% end %>
+  <div >
 
-<ul>
+    <%= form_with url: beers_path, method: 'get', local: true do |f| %>
+      <%= f.label :q, "Find a Beer" %>
+      <div class="glyphicon glyphicon-search">
+      <%= f.search_field :q, list: "beers", placeholder: "Enter beer or brewery", size: 50 %>
+      </div>
+      <datalist id="beers">
+        <% @all_beers.each do |beer| %>
+          <option value="<%= beer.name %> - <%= beer.brewery %>"</option>
+        <% end %>
+      </datalist>
+      <%= f.submit "Search", name: nil %>
+    <% end %>
 
-<% @beers.each do |beer| %>
-  <li> <%= link_to beer.name, beer_path(beer) %> - <%= beer.brewery %> </li>
-  <% end %>
+  </div>
 
-</ul>
+  <div >
 
-  <h4>Can't find your beer? <%= button_to "Create a New Beer", new_beer_path, method: 'get'%></h4>
+    <h4>Can't find your beer? <%= button_to "Create a New Beer", new_beer_path, method: 'get', class:'btn-success'%></h4>
+
+  </div>
+
+  <div class="featured text-center">
+
+
+
+    <% @featured_beers.each do |beer| %>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <%= link_to beer.name, beer_path(beer) %> - <%= beer.brewery %>
+      </div>
+    </div>
+    <% end %>
+
+  </div>
+
+</div>

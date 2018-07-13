@@ -18,7 +18,12 @@ class UsersController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    unless logged_in_user_id == @user.id
+      flash[:notice] = "Get the FUCK outta here!"
+      redirect_to user_path logged_in_user_id
+    end
+  end
 
   def edit; end
 

@@ -1,5 +1,10 @@
 <h1> Cheers <%= @user.name %>! </h1>
 
+  <% if flash[:notice] %>
+    <%= flash[:notice] %>
+  <% end %>
+  <br>
+
 From <%=@user.location %><%= button_to "Edit", edit_user_path(@user), method: 'get'%>
 <hr>
 

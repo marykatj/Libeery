@@ -1,37 +1,41 @@
-<h1> Share your Beer! </h1>
+<h1 class="text-center"> Share your Beer! </h1>
+
+<div class="list-group text-center">
 
 <%= form_for @beer do |f| %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
+  <li class="list-group-item"><%= f.label :name %>
+  <%= f.text_field :name %></li>
 
-  <%= f.label :brewery %>
-  <%= f.text_field :brewery %><br>
+  <li class="list-group-item"><%= f.label :brewery %>
+  <%= f.text_field :brewery %></li>
 
-  <%= f.label :style %>
-  <%= f.collection_select(:style, Beer.styles, :itself, :itself, {prompt: "--Select a Style--"}) %><br>
+  <li class="list-group-item"><%= f.label :style %>
+  <%= f.collection_select(:style, Beer.styles, :itself, :itself, {prompt: "--Select a Style--"}) %></li>
 
-  <%= f.label :abv %>
-  <%= f.number_field :abv, step: 0.1 %><br>
+  <li class="list-group-item"><%= f.label :abv %>
+  <%= f.number_field :abv, step: 0.1 %></li>
 
 
     <%= f.fields_for :posts do |post| %>
 
-      <%= post.label "Picture" %>
-      <%= post.file_field :image_file %><br>
+      <li class="list-group-item"><%= post.label "Picture" %>
+      <%= post.file_field :image_file %></li>
 
-      <%= post.label :description %>
-      <%= post.text_area :description %><br>
+      <li class="list-group-item"><%= post.label :description %>
+      <%= post.text_area :description %></li>
 
-      <%= post.label :situation %>
-      <%= post.collection_select(:situation, Post.situations, :itself, :itself) %><br>
-      <%= post.collection_check_boxes(:category_ids, Category.all, :id, :name) %><br>
+      <li class="list-group-item"><%= post.label :situation %>
+      <%= post.collection_select(:situation, Post.situations, :itself, :itself) %></li>
+      <li class="list-group-item"><%= post.collection_check_boxes(:category_ids, Category.all, :id, :name) %></li>
 
       <input type="hidden" name="beer[posts_attributes][0][user_id]" value="<%= @user.id %>">
       <%# hidden_field_tag :user_id, @user.id %>
 
     <% end %>
 
-  <%= f.submit %>
+  <li class="list-group-item"><%= f.submit %></li>
 
 <% end %>
+
+</div>

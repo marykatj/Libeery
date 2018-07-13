@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   helper_method :get_logged_in_user
 
   def home
-    @user = User.new
+    redirect_to beers_path
   end
 
   private
@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 
   def authorized?
     redirect_to login_path unless !!get_logged_in_user
-    #specific user 
+    #specific user
   end
 
 end

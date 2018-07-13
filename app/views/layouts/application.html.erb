@@ -10,22 +10,32 @@
   </head>
 
   <body>
+    <div id="main-container" class="container-fluid">
 
-    <div class="header">
+      <header class="page-header">
 
-    <h1>Libeery</h1>
-    <div >
-      <%= link_to "Beer!", beers_path %>
+      <h1 style="" class="text-center">Libeery</h1>
+      <div class="text-center">
+        <h2> <%= link_to "Search the Full List", beers_path %> </h2>
+      </div>
+      <div class="text-center">
+      <% if get_logged_in_user %>
+      <div class="glyphicon glyphicon-user">
+        <%= link_to "Profile", user_path(get_logged_in_user) %>
+      </div>
+      <br>
+      <div class="glyphicon glyphicon-off">
+        <%= link_to "Logout", login_path, method: 'delete' %>
+      </div>
+      <% else %>
+      <div class="glyphicon glyphicon-off">
+        <%= link_to "Login", login_path, method: 'get' %>
+      </div>
+      <% end %>
+      </div>
+    </header>
+
+      <%= yield %>
     </div>
-    <div>
-    <% if get_logged_in_user %>
-      <%= link_to "Profile", user_path(get_logged_in_user) %>
-      <%= link_to "Logout", login_path, method: 'delete' %>
-    <% end %>
-    </div>
-    <hr>
-  </div>
-
-    <%= yield %>
   </body>
 </html>

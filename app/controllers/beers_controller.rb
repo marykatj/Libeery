@@ -4,9 +4,10 @@ class BeersController < ApplicationController
 
   def index
     if params[:q]
-      @beers = Beer.find_by_name_or_brewery(params[:q])
+      @featured_beers = Beer.find_by_name_or_brewery(params[:q])
     else
-      @beers = Beer.all
+      # @beers = Beer.all
+      @featured_beers = Beer.featured_beers
     end
     @all_beers = Beer.all
     @beer_count = @all_beers.count

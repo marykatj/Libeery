@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2018_07_12_142038) do
     t.string "name"
     t.string "brewery"
     t.string "style"
-    t.float "abv"
+    t.string "abv"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
