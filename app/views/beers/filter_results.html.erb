@@ -1,0 +1,7 @@
+<% @selected_beers = Beer.all.select do |beer| %>
+  <% beer.style == "style" %>
+<% end %>
+
+<% @selected_beers.each do |beer| %>
+  <%= link_to beer.name, beer %>
+<% end %>

@@ -36,6 +36,18 @@ class BeersController < ApplicationController
     @post = Post.new
   end
 
+  def filter; end
+
+  def filter_results
+    @selected_beers = Beer.all.select do |beer|
+       beer.style == "style"
+    end
+     # if params[:style]
+     #@selected_beers = Beer.find_by(params[:style])
+     # end
+     # @selected_beers
+  end
+
   # def favorites
   #   type = params[:type]
   #   if type == "favorite"

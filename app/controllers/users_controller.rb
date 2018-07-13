@@ -35,8 +35,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def filter; end
-
   # def destroy
   #   session.delete(:user_id)
   #   @user.destroy # crashes for some reason
@@ -54,3 +52,5 @@ class UsersController < ApplicationController
   end
 
 end
+
+#|| beer.category == "category" || beer.situation == "situation"
