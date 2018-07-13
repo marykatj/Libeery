@@ -1,8 +1,10 @@
 <div class="container" class="text-center">
 
+  <div class="featured text-center">
+
   <h1> Find a Beer! </h1>
 
-  <h3><%= @beer_count %> beers and counting!</h3>
+  <h3><%= @beer_count %> varieties of beer and counting!</h3>
 
   <div >
 
@@ -27,18 +29,25 @@
 
   </div>
 
-  <div class="featured text-center">
+</div>
 
+
+  <div class="featured text-center">
+    <h3>Featured Beers</h3>
 
 
     <% @featured_beers.each do |beer| %>
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <%= link_to beer.name, beer_path(beer) %> - <%= beer.brewery %>
+    <div class="">
+      <div class=" col-md-4">
+        <div class="btn btn-default btn-lg">
+          <%= link_to beer.name, beer_path(beer) %>
+          <br>
+          <%= beer.brewery %>
+        </div>
       </div>
     </div>
     <% end %>
-
   </div>
+
 
 </div>

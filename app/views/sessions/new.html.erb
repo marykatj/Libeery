@@ -1,5 +1,7 @@
 <div class="text-center">
 
+<div class="col-md-6">
+
 <h1>Login</h1>
 
   <% if flash[:notice] %>
@@ -21,8 +23,14 @@
 </li>
 <% end %>
 
-<br>
+</div>
 
-<%= render 'users/new' %>
+
+
+<div class="col-md-6">
+
+  <%= render 'users/new' %>
+
+</div>
 
 </div>

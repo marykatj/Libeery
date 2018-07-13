@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <div id="main-container" class="container-fluid">
+    <div id="main-container" class="container-fluid" >
 
       <header class="page-header">
 
@@ -21,7 +21,7 @@
       <div class="text-center">
       <% if get_logged_in_user %>
       <div class="glyphicon glyphicon-user">
-        <%= link_to "Profile", user_path(get_logged_in_user) %>
+         <%= link_to "Profile", user_path(get_logged_in_user) %>
       </div>
       <br>
       <div class="glyphicon glyphicon-off">
