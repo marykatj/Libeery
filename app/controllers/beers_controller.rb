@@ -14,6 +14,10 @@ class BeersController < ApplicationController
     @beer_count = @all_beers.count
   end
 
+  def full_list
+    @full_beer_list = Beer.all
+  end
+
   def new
     @breweries = Beer.fetch_breweries
     @beer = Beer.new

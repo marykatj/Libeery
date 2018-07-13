@@ -5,7 +5,7 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.new(params.require(:favorite).permit(:beer_id))
     @user.favorites << @favorite
     flash[:notice] = "You favorited #{@favorite.beer.name}"
-    redirect_to beers_path
+    redirect_to beer_path @favorite.beer_id
   end
 
   def destroy

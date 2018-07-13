@@ -1,0 +1,16 @@
+
+  <div class="featured text-center">
+    <h3>All the Beer</h3>
+
+    <ul class="list-group">
+
+    <% @full_beer_list.each do |beer| %>
+    <li class="list-group-item col-md-4" >
+          <%= link_to beer.name, beer_path(beer) %>
+          <br>
+          <%= beer.brewery %>
+
+    </li>
+    <% end %>
+  </ul>
+  </div>

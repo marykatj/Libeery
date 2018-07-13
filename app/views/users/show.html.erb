@@ -1,3 +1,5 @@
+<div class="text-center">
+
 <h1> Cheers <%= @user.name %>! </h1>
 
   <% if flash[:notice] %>
@@ -8,15 +10,21 @@
 From <%=@user.location %><%= button_to "Edit", edit_user_path(@user), method: 'get'%>
 <hr>
 
+</div>
+
+<div class="col-md-6">
+<h3 class="text-center">Posts</h3>
 <ul>
   <% @user.posts.each do |post| %>
+  <div class="well">
+
   <li>
     <%= link_to "Posted on #{post.stringify_datetime}", post_path(post) %>
     <br>
+    <h3> <%= link_to post.beer.name, beer_path(post.beer) %> </h3>
     <% if post.image_url %>
       <img src= "<%= post.image_url %>" alt="" height="200", width="300">
     <% end %>
-    <br>
     <h3><%= post.description %></h3><br>
     <ul>
       <% post.categories.each do |category|%>
@@ -25,19 +33,25 @@ From <%=@user.location %><%= button_to "Edit", edit_user_path(@user), method: 'g
       </ul>
     <h4>Best Enjoyed: <%= post.situation %></h4>
     <h5>By <%= post.user.name %></h5>
+  </div>
 
   </li>
-  <hr>
+
   <% end %>
 </ul>
 
+</div>
+
+<div class="col-md-6">
+<h3 class="text-center">Favorites</h3>
 <ul>
     <% @user.favorites.each do |fav| %>
     <li>
-      <%= link_to fav.beer.name, beer_path(fav.beer) %>
+      <%= link_to "#{fav.beer.name} - #{fav.beer.brewery}", beer_path(fav.beer) %>
     <% end %>
   </li>
 </ul>
 
+</div>
 <%# button_to "Logout", login_path, method: 'delete' %>
 <%# button_to "Delete Your Account", user_path(@user), method: 'delete' %>
