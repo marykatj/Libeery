@@ -3,6 +3,7 @@ class BeersController < ApplicationController
   skip_before_action :authorized?, only: %i[index]
 
   def index
+    @favorite = Favorite.new
     if params[:q]
       @featured_beers = Beer.find_by_name_or_brewery(params[:q])
     else
@@ -32,6 +33,22 @@ class BeersController < ApplicationController
     @user = get_logged_in_user
     @post = Post.new
   end
+
+  # def favorites
+  #   type = params[:type]
+  #   if type == "favorite"
+  #     @user = get_logged_in_user
+  #     @user.favorites << @beer
+  #     redirect_to :back, notice: "You favorited #{@beer.name}"
+  #
+  #   elsif type == "unfavorite"
+  #     get_logged_in_user.favorites.delete(@beer)
+  #     redirect_to :back, notice: "Unfavorited #{@beer.name}"
+  #
+  #   else
+  #     redirect_to :back, notice: "Nothing happened."
+  #   end
+  # end
 
   private
 
