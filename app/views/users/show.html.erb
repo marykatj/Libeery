@@ -19,14 +19,12 @@ From <%=@user.location %><%= button_to "Edit", edit_user_path(@user), method: 'g
   <% @user.posts.each do |post| %>
   <div class="well">
 
-  <li>
-    <%= link_to "Posted on #{post.stringify_datetime}", post_path(post) %>
-    <br>
-    <h3> <%= link_to post.beer.name, beer_path(post.beer) %> </h3>
+    <h3> <%= link_to post.beer.name, beer_path(post.beer) %></h3>
+    <h4> Brewed by <%= post.beer.brewery %></h4>
     <% if post.image_url %>
       <img src= "<%= post.image_url %>" alt="" height="200", width="300">
     <% end %>
-    <h3><%= post.description %></h3><br>
+    <h4><%= post.description %></h4>
     <ul>
       <% post.categories.each do |category|%>
         <li><%= category.name %></li>
@@ -34,9 +32,8 @@ From <%=@user.location %><%= button_to "Edit", edit_user_path(@user), method: 'g
       </ul>
     <h5>Best Enjoyed: <%= post.situation %></h5>
     <h5>By <%= post.user.name %></h5>
+    <%= link_to "Posted on #{post.stringify_datetime}", post_path(post) %>
   </div>
-
-  </li>
 
   <% end %>
 </ul>
