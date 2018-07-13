@@ -35,6 +35,8 @@ class UsersController < ApplicationController
     end
   end
 
+  def filter; end
+
   # def destroy
   #   session.delete(:user_id)
   #   @user.destroy # crashes for some reason
@@ -50,6 +52,5 @@ class UsersController < ApplicationController
   def fetch_user
     @user = User.find(params[:id])
   end
-
 
 end
