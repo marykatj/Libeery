@@ -1,6 +1,12 @@
 <h2><%= @beer.name %> brewed by <%= @beer.brewery %></h2>
 <h4> Style: <%= @beer.style %></h4>
 <h4><%= @beer.abv %>% Alcohol</h4>
+<% if get_logged_in_user %>
+  <%= form_for @favorite, url: favorites_path do |f| %>
+  <input type= 'hidden' name= "favorite[beer_id]" value= "<%= @beer.id %>">
+    <%= f.submit %>
+  <% end %>
+<% end %>
 
 <h4>Our users have described this beer as:</h4>
 <ul>
